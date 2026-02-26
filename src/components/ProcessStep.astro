@@ -1,0 +1,55 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  description: string;
+  isOpen?: boolean;
+  bgColor?: "sage" | "cream";
+}
+
+const {
+  number,
+  title,
+  description,
+  isOpen = false,
+  bgColor = "cream",
+} = Astro.props;
+
+const bgMap: Record<string, string> = {
+  sage: "bg-sage",
+  cream: "bg-cream",
+};
+---
+
+<details
+  class={`group rounded-xl shadow-[0_4px_12px_rgba(197,190,182,0.25)] ${bgMap[bgColor]} overflow-hidden`}
+  open={isOpen || undefined}
+>
+  <summary class="flex items-center justify-between gap-4 sm:gap-6 cursor-pointer px-4 py-6 sm:px-8 sm:py-8 lg:px-14 lg:py-10 list-none [&::-webkit-details-marker]:hidden">
+    <div class="flex items-center gap-3 sm:gap-6 min-w-0">
+      <span class="text-[36px] sm:text-[48px] lg:text-[60px] font-medium leading-none text-dark shrink-0">{number}</span>
+      <h3 class="text-[20px] sm:text-[24px] lg:text-[30px] font-medium text-dark">{title}</h3>
+    </div>
+    <div class="flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-dark shrink-0">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="transition-transform group-open:rotate-45"
+      >
+        <path d="M5 12h14"/><path d="M12 5v14"/>
+      </svg>
+    </div>
+  </summary>
+
+  <div class="px-4 pb-6 sm:px-8 sm:pb-8 lg:px-14 lg:pb-10">
+    <hr class="mb-6 border-dark/20" />
+    <p class="max-w-[900px] text-body leading-relaxed text-dark">{description}</p>
+  </div>
+</details>

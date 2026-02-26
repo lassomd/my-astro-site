@@ -1,0 +1,51 @@
+---
+interface Props {
+  heading?: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+}
+
+const {
+  heading = "Let's brighten your smile",
+  description = "Schedule your consultation today and discover how our personalized dental care can transform your oral health and boost your confidence.",
+  buttonText = "Get your free proposal",
+  buttonHref = "#contact",
+} = Astro.props;
+---
+
+<section class="px-4 sm:px-6 lg:px-[100px]">
+  <div class="relative overflow-hidden rounded-xl bg-cream px-5 py-10 sm:px-8 sm:py-12 lg:px-16 lg:py-14">
+    <div class="relative z-10 flex flex-col gap-6 max-w-[500px]">
+      <h2 class="text-[30px] font-normal text-dark leading-tight">{heading}</h2>
+      <p class="text-body leading-relaxed text-body">{description}</p>
+      <a
+        href={buttonHref}
+        class="inline-flex self-start rounded-xl bg-dark px-8 py-4 text-h3 text-white hover:bg-dark-lighter transition-colors"
+      >
+        {buttonText}
+      </a>
+    </div>
+
+    <!-- Decorative elements -->
+    <div class="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block" aria-hidden="true">
+      <!-- Rings -->
+      <svg width="300" height="200" viewBox="0 0 300 200" fill="none" class="opacity-60">
+        <ellipse cx="150" cy="80" rx="140" ry="30" stroke="#D4916E" stroke-width="1"/>
+        <ellipse cx="150" cy="100" rx="140" ry="30" stroke="#D4916E" stroke-width="1"/>
+        <ellipse cx="150" cy="120" rx="140" ry="30" stroke="#D4916E" stroke-width="1"/>
+      </svg>
+      <!-- Circle -->
+      <div class="absolute -top-4 right-4 w-28 h-28 rounded-full bg-accent"></div>
+      <!-- Dots -->
+      <div class="absolute bottom-4 right-24 flex gap-6">
+        <div class="w-5 h-8 rounded-full bg-cream"></div>
+        <div class="w-5 h-8 rounded-full bg-cream"></div>
+      </div>
+      <!-- Star shape -->
+      <svg width="80" height="80" viewBox="0 0 80 80" class="absolute bottom-0 right-0">
+        <path d="M40 0 C40 22, 58 40, 80 40 C58 40, 40 58, 40 80 C40 58, 22 40, 0 40 C22 40, 40 22, 40 0Z" fill="#C3DED8"/>
+      </svg>
+    </div>
+  </div>
+</section>

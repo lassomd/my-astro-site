@@ -1,0 +1,93 @@
+---
+interface Props {
+  title: string[];
+  subtitle?: string;
+  iconName: string;
+  bgColor?: "cream" | "sage" | "dark" | "olive" | "slate";
+  href?: string;
+}
+
+const {
+  title,
+  subtitle,
+  iconName,
+  bgColor = "cream",
+  href = "#",
+} = Astro.props;
+
+const bgMap: Record<string, string> = {
+  cream: "bg-cream",
+  sage: "bg-sage",
+  dark: "bg-dark",
+  olive: "bg-olive",
+  slate: "bg-slate",
+};
+
+const textMap: Record<string, string> = {
+  cream: "text-dark",
+  sage: "text-dark",
+  dark: "text-white",
+  olive: "text-dark",
+  slate: "text-dark",
+};
+
+const iconColorMap: Record<string, string> = {
+  cream: "text-accent",
+  sage: "text-accent",
+  dark: "text-sage",
+  olive: "text-accent",
+  slate: "text-accent",
+};
+
+const linkColorMap: Record<string, string> = {
+  cream: "text-dark",
+  sage: "text-dark",
+  dark: "text-cream",
+  olive: "text-dark",
+  slate: "text-dark",
+};
+
+const arrowBgMap: Record<string, string> = {
+  cream: "bg-dark",
+  sage: "bg-dark",
+  dark: "bg-cream",
+  olive: "bg-dark",
+  slate: "bg-dark",
+};
+
+const arrowFillMap: Record<string, string> = {
+  cream: "text-cream",
+  sage: "text-cream",
+  dark: "text-dark",
+  olive: "text-cream",
+  slate: "text-cream",
+};
+---
+
+<div
+  class={`flex items-center justify-between rounded-xl p-6 sm:p-8 lg:p-12 shadow-[0_4px_12px_rgba(197,190,182,0.25)] ${bgMap[bgColor]} ${textMap[bgColor]}`}
+>
+  <div class="flex flex-col justify-between gap-20 h-full">
+    <!-- Heading -->
+    <div class="flex flex-col">
+      {title.map((line) => (
+        <span class="text-[22px] sm:text-[26px] lg:text-[30px] font-medium leading-tight">{line}</span>
+      ))}
+    </div>
+
+    <!-- Learn more link -->
+    <a href={href} class={`inline-flex items-center gap-4 group ${linkColorMap[bgColor]}`}>
+      <span class={`flex items-center justify-center w-10 h-10 rounded-full ${arrowBgMap[bgColor]}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class={`rotate-[-30deg] ${arrowFillMap[bgColor]}`}>
+          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+        </svg>
+      </span>
+      <span class="text-body group-hover:underline">Learn more</span>
+    </a>
+  </div>
+
+  <!-- Icon -->
+  <div class={`hidden sm:flex items-center justify-center w-[80px] h-[80px] lg:w-[120px] lg:h-[120px] shrink-0 ${iconColorMap[bgColor]}`}>
+    <Fragment set:html={iconName} />
+  </div>
+</div>

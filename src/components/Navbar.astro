@@ -1,0 +1,79 @@
+---
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Treatments", href: "#treatments" },
+  { label: "Doctors", href: "#doctors" },
+  { label: "Blog", href: "#blog" },
+];
+---
+
+<nav class="sticky top-0 z-50 w-full bg-cream/95 backdrop-blur-sm rounded-t-lg">
+  <div class="mx-auto flex items-center justify-between px-4 sm:px-8 lg:px-[100px] py-3">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
+        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+        <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>
+      </svg>
+      <span class="text-h3 font-medium text-dark">BrightSmile</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden lg:flex items-center gap-10">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-[15px] font-medium tracking-wide text-dark hover:text-accent transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#contact"
+        class="rounded-xl border-[1.5px] border-dark px-6 py-3 text-[15px] font-bold text-dark hover:bg-dark hover:text-white transition-colors"
+      >
+        Book Appointment
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="lg:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle menu"
+      id="mobile-menu-btn"
+    >
+      <span class="block w-6 h-0.5 bg-dark"></span>
+      <span class="block w-6 h-0.5 bg-dark"></span>
+      <span class="block w-6 h-0.5 bg-dark"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden lg:hidden px-4 sm:px-8 pb-6">
+    <div class="flex flex-col gap-4">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-[15px] font-medium text-dark hover:text-accent transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#contact"
+        class="mt-2 inline-block rounded-xl border-[1.5px] border-dark px-6 py-3 text-center text-[15px] font-bold text-dark hover:bg-dark hover:text-white transition-colors"
+      >
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

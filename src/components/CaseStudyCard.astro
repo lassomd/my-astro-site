@@ -1,0 +1,60 @@
+---
+interface Props {
+  image: string;
+  imageAlt: string;
+  stat: string;
+  statLabel: string;
+  description: string;
+  href?: string;
+  bgColor?: "sage" | "cream" | "slate";
+}
+
+const {
+  image,
+  imageAlt,
+  stat,
+  statLabel,
+  description,
+  href = "#",
+  bgColor = "cream",
+} = Astro.props;
+
+const bgMap: Record<string, string> = {
+  sage: "bg-sage",
+  cream: "bg-cream",
+  slate: "bg-slate",
+};
+---
+
+<article class={`flex flex-col overflow-hidden rounded-lg ${bgMap[bgColor]}`}>
+  <!-- Image -->
+  <div class="h-[220px] overflow-hidden">
+    <img
+      src={image}
+      alt={imageAlt}
+      class="h-full w-full object-cover"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Body -->
+  <div class="flex flex-col gap-4 p-7">
+    <!-- Stat -->
+    <span class="text-[48px] font-normal tracking-tight text-dark leading-none">{stat}</span>
+    <span class="text-caption font-medium tracking-[1px] text-muted">{statLabel}</span>
+
+    <!-- Divider -->
+    <hr class="border-divider" />
+
+    <!-- Description -->
+    <p class="text-small leading-relaxed text-dark">{description}</p>
+
+    <!-- Link -->
+    <a href={href} class="inline-flex items-center gap-1.5 text-[13px] font-medium text-dark hover:underline">
+      Read full story
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</article>

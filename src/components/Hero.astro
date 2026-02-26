@@ -1,0 +1,111 @@
+---
+const stats = [
+  { icon: "calendar-check", text: "Same-Day Appointments" },
+  { icon: "award", text: "Board-Certified Dentists" },
+  { icon: "star", text: "4.9 Rating from 2,000+ Reviews" },
+  { icon: "shield-check", text: "Insurance Accepted" },
+];
+---
+
+<section class="relative overflow-hidden rounded-lg bg-cream">
+  <div class="grid lg:grid-cols-2 gap-0">
+    <!-- Left: Content -->
+    <div class="flex flex-col justify-center gap-8 px-4 py-10 sm:px-8 sm:py-16 lg:px-12 lg:py-16">
+      <div class="flex flex-col gap-6">
+        <span class="text-caption font-medium tracking-[2px] uppercase text-muted">
+          Modern Dental Care
+        </span>
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-normal leading-[1.05] tracking-tight text-dark">
+          Your smile deserves<br />the very best care
+        </h1>
+        <p class="max-w-[520px] text-body leading-relaxed text-body">
+          Our modern dental practice combines gentle, personalized care with
+          advanced technology to give you and your family the confident, healthy
+          smile you deserve.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-2 rounded-xl bg-dark px-8 py-4 text-body font-bold text-white hover:bg-dark-lighter transition-colors"
+        >
+          Book a Consultation
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </a>
+        <span class="text-small text-muted">Or call (555) 234-5678</span>
+      </div>
+    </div>
+
+    <!-- Right: Visual -->
+    <div class="relative min-h-[420px] pb-10 sm:min-h-[500px] sm:pb-0 lg:min-h-[620px] overflow-hidden">
+      <!-- Decorative rings -->
+      <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+        <div class="relative w-[500px] h-[120px] rotate-[-29deg] opacity-20">
+          <div class="absolute inset-0 rounded-full border-[1.5px] border-dark"></div>
+          <div class="absolute inset-0 translate-x-5 -translate-y-9 rounded-full border-[1.5px] border-dark/70"></div>
+          <div class="absolute inset-0 translate-x-10 -translate-y-[72px] rounded-full border-[1.5px] border-dark/50"></div>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="absolute top-[40px] sm:top-[70px] left-1/2 -translate-x-1/2 w-3/4 aspect-[3/4] sm:w-[320px] sm:h-[420px] lg:w-[380px] lg:h-[480px] rounded-[200px] overflow-hidden">
+        <img
+          src="/images/generated-1772044772809.png"
+          alt="Smiling patient at BrightSmile Dental"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Floating badge: years -->
+      <div class="hidden sm:block absolute sm:top-[240px] left-2 sm:left-4 lg:left-5 bg-cream rounded-md px-4 py-3 shadow-sm">
+        <span class="block text-[28px] font-normal text-dark">15+</span>
+        <span class="text-[11px] font-medium tracking-[1px] text-muted">Years of Care</span>
+      </div>
+
+      <!-- Floating badge: smiles -->
+      <div class="hidden sm:block absolute sm:bottom-[140px] right-2 sm:right-4 lg:right-10 bg-cream rounded-md px-4 py-3 shadow-sm">
+        <span class="block text-[28px] font-normal text-dark">10k+</span>
+        <span class="text-[11px] font-medium tracking-[1px] text-muted">Happy Smiles</span>
+      </div>
+
+      <!-- Decorative icons -->
+      <div class="hidden sm:block absolute top-12 left-12 text-dark" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="hidden sm:block absolute top-20 right-16 text-accent" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-6 bg-olive rounded-lg px-4 sm:px-8 lg:px-12 py-4 sm:py-5 mx-1.5 mb-1.5 mt-6">
+    {stats.map((stat) => (
+      <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-dark shrink-0">
+          {stat.icon === "calendar-check" && (
+            <><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></>
+          )}
+          {stat.icon === "award" && (
+            <><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></>
+          )}
+          {stat.icon === "star" && (
+            <><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a.53.53 0 0 0 .4.29l5.16.756a.53.53 0 0 1 .294.904l-3.733 3.638a.53.53 0 0 0-.153.469l.882 5.14a.53.53 0 0 1-.77.56l-4.614-2.425a.53.53 0 0 0-.494 0L6.18 18.73a.53.53 0 0 1-.77-.56l.882-5.14a.53.53 0 0 0-.153-.47L2.406 8.925a.53.53 0 0 1 .294-.906l5.16-.756a.53.53 0 0 0 .4-.29z"/></>
+          )}
+          {stat.icon === "shield-check" && (
+            <><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></>
+          )}
+        </svg>
+        <span class="text-small font-medium text-dark">{stat.text}</span>
+      </div>
+    ))}
+  </div>
+</section>

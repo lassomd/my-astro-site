@@ -1,0 +1,61 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  role: string;
+  rating?: number;
+  bgColor?: "cream" | "sage" | "olive";
+}
+
+const {
+  quote,
+  name,
+  role,
+  rating = 5,
+  bgColor = "cream",
+} = Astro.props;
+
+const bgMap: Record<string, string> = {
+  cream: "bg-cream",
+  sage: "bg-sage",
+  olive: "bg-olive",
+};
+
+const quoteColorMap: Record<string, string> = {
+  cream: "text-sage",
+  sage: "text-dark/10",
+  olive: "text-dark/10",
+};
+
+const dividerMap: Record<string, string> = {
+  cream: "border-border",
+  sage: "border-dark/10",
+  olive: "border-dark/10",
+};
+---
+
+<article class={`flex flex-col gap-6 rounded-lg p-8 ${bgMap[bgColor]}`}>
+  <!-- Quote mark -->
+  <span class={`text-[80px] leading-[0.5] font-normal select-none ${quoteColorMap[bgColor]}`}>&ldquo;</span>
+
+  <!-- Review text -->
+  <p class="text-[15px] leading-relaxed text-dark">{quote}</p>
+
+  <!-- Stars -->
+  <div class="flex gap-1">
+    {Array.from({ length: rating }).map(() => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-accent">
+        <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a.53.53 0 0 0 .4.29l5.16.756a.53.53 0 0 1 .294.904l-3.733 3.638a.53.53 0 0 0-.153.469l.882 5.14a.53.53 0 0 1-.77.56l-4.614-2.425a.53.53 0 0 0-.494 0L6.18 18.73a.53.53 0 0 1-.77-.56l.882-5.14a.53.53 0 0 0-.153-.47L2.406 8.925a.53.53 0 0 1 .294-.906l5.16-.756a.53.53 0 0 0 .4-.29z"/>
+      </svg>
+    ))}
+  </div>
+
+  <!-- Divider -->
+  <hr class={dividerMap[bgColor]} />
+
+  <!-- Attribution -->
+  <div class="flex flex-col gap-0.5">
+    <span class="text-[15px] font-medium text-dark">{name}</span>
+    <span class="text-[13px] text-muted">{role}</span>
+  </div>
+</article>
